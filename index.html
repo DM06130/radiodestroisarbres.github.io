@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Radio des trois arbres</title>
+  <title>Radio des 3 arbres</title>
   <meta charset="UTF-8">
 </head>
 
 <body style="text-align:center; font-family: Arial; background:#111; color:white;">
-
   <!-- LOGO -->
   <img src="logo.jpg" width="300">
 
-  <h1>🎧 Radio des trois arbres</h1>
+<h1>🎧 Radio des 3 Arbres</h1>
 
-  <audio controls autoplay>
-  <source src="https://api.allorigins.win/raw?url=http://82.122.52.126:8000/stream" type="audio/mpeg">
-</audio>
+<button onclick="playRadio()" style="padding:15px; font-size:20px;">
+▶️ Écouter la radio
+</button>
+
+<script>
+let audio = new Audio("https://82.122.52.126:8000/stream");
+
+function playRadio() {
+  audio.play();
+}
+</script>
 
 </body>
 </html>
