@@ -1,20 +1,21 @@
-<button onclick="playRadio()" style="padding:15px;font-size:20px;">
-        ▶️ Écouter la radio
-    </button>
+<audio id="radio" controls>
+    <source src="https://radiodes3arbres.duckdns.org/stream" type="audio/mpeg">
+</audio>
 
-    <script>
-        const audio = document.getElementById("radio");
+<button onclick="playRadio()">
+    ▶️ Écouter la radio
+</button>
 
-        function playRadio() {
-            audio.play().catch(error => {
-                console.error("Erreur de lecture :", error);
-            });
-        }
+<script>
+    const audio = document.getElementById("radio");
 
-        audio.addEventListener("error", function() {
-            console.error("Erreur audio :", audio.error);
+    function playRadio() {
+        audio.play().catch(error => {
+            console.error("Erreur de lecture :", error);
         });
-    </script>
+    }
 
-</body>
-</html>
+    audio.addEventListener("error", function() {
+        console.error("Erreur audio :", audio.error);
+    });
+</script>
