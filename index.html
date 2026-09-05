@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Radio des 3 arbres</title>
-    <meta charset="UTF-8">
-</head>
-
-<body style="text-align:center; font-family: Arial; background:#111; color:white;">
-    <!-- LOGO -->
-    <img src="logo.jpg" width="300">
-
-    <h1>🎧 Radio des 3 Arbres</h1>
-
-    <button onclick="playRadio()" style="padding:15px; font-size:20px;">
+<button onclick="playRadio()" style="padding:15px;font-size:20px;">
         ▶️ Écouter la radio
     </button>
 
     <script>
-    let audio = new Audio("https://radiodes3arbres.duckdns.org/stream");
+        const audio = document.getElementById("radio");
 
-    function playRadio() {
-        audio.play();
-    }
+        function playRadio() {
+            audio.play().catch(error => {
+                console.error("Erreur de lecture :", error);
+            });
+        }
+
+        audio.addEventListener("error", function() {
+            console.error("Erreur audio :", audio.error);
+        });
     </script>
 
 </body>
