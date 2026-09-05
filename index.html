@@ -9,18 +9,12 @@
   <!-- LOGO -->
   <img src="logo.jpg" width="300">
 
-<h1>🎧 Radio des 3 Arbres</h1>
+  <h1>🎧 Radio des 3 Arbres</h1>
 
-<button onclick="playRadio()" style="padding:15px; font-size:20px;">
-▶️ Écouter la radio
-</button>
-
-<script>
-function playRadio() {
-  let audio = new Audio("http://90.5.103.127:8000/stream");
-  audio.play();
-}
-</script>
-
+  <!-- LECTEUR AUDIO NATIVE -->
+  <audio controls preload="none">
+    <source src="http://90.5.103.127:8000/stream" type="audio/mpeg">
+    Votre navigateur ne supporte pas le lecteur audio.
+  </audio>
 </body>
 </html>
