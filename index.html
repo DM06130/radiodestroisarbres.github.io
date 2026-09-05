@@ -1,28 +1,398 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Radio des 3 arbres</title>
-    <meta charset="UTF-8">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Radio des 3 Arbres</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 15, 15, 0.20),
+            rgba(0, 15, 15, 0.20)
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+/* =========================
+   CARTE DU PLAYER
+   ========================= */
+
+.player {
+
+    width: 360px;
+    max-width: 90%;
+
+    padding: 34px 28px 30px;
+
+    text-align: center;
+
+    background: rgba(55, 62, 58, 0.72);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 26px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.60),
+        inset 0 1px 2px rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(5px);
+
+}
+
+
+/* =========================
+   LOGO RADIO
+   ========================= */
+
+.logo {
+
+    width: 130px;
+    height: 130px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid rgba(170,255,170,0.60);
+
+    box-shadow:
+
+        0 0 10px rgba(70,255,90,0.80),
+
+        0 0 28px rgba(70,255,90,0.55);
+
+}
+
+
+/* =========================
+   TITRE
+   ========================= */
+
+.title {
+
+    margin-top: 28px;
+
+    color: #ffe16a;
+
+    font-size: 27px;
+
+    line-height: 1.35;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,0.75);
+
+}
+
+
+/* CASQUE */
+
+.headphone {
+
+    font-size: 29px;
+
+    margin-right: 7px;
+
+}
+
+
+/* =========================
+   SLOGAN
+   ========================= */
+
+.slogan {
+
+    margin-top: 12px;
+    margin-bottom: 22px;
+
+    color: white;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================
+   ÉGALISEUR
+   ========================= */
+
+.equalizer {
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.bar {
+
+    width: 7px;
+
+    border-radius: 6px 6px 2px 2px;
+
+    background: linear-gradient(
+        to top,
+        #16ef68,
+        #efff4b
+    );
+
+    animation:
+        equalizer 0.75s
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+/* différentes hauteurs */
+
+.bar:nth-child(1) {
+    height: 24px;
+    animation-delay: -0.15s;
+}
+
+.bar:nth-child(2) {
+    height: 39px;
+    animation-delay: -0.40s;
+}
+
+.bar:nth-child(3) {
+    height: 31px;
+    animation-delay: -0.20s;
+}
+
+.bar:nth-child(4) {
+    height: 50px;
+    animation-delay: -0.55s;
+}
+
+.bar:nth-child(5) {
+    height: 36px;
+    animation-delay: -0.30s;
+}
+
+.bar:nth-child(6) {
+    height: 47px;
+    animation-delay: -0.45s;
+}
+
+.bar:nth-child(7) {
+    height: 29px;
+    animation-delay: -0.10s;
+}
+
+.bar:nth-child(8) {
+    height: 42px;
+    animation-delay: -0.35s;
+}
+
+.bar:nth-child(9) {
+    height: 34px;
+    animation-delay: -0.50s;
+}
+
+
+@keyframes equalizer {
+
+    from {
+        transform: scaleY(0.45);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+
+}
+
+
+/* =========================
+   LECTEUR AUDIO
+   ========================= */
+
+audio {
+
+    display: block;
+
+    width: 100%;
+
+    height: 54px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================
+   DIRECT 24H/24
+   ========================= */
+
+.live {
+
+    margin-top: 23px;
+
+    color: #dddddd;
+
+    font-size: 14px;
+
+}
+
+
+.live-dot {
+
+    display: inline-block;
+
+    width: 12px;
+    height: 12px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #ff1025;
+
+    box-shadow:
+        0 0 9px rgba(255,0,30,0.85);
+
+    vertical-align: -1px;
+
+}
+
+</style>
+
 </head>
 
-<body style="text-align:center; font-family: Arial; background:#111; color:white;">
 
-<!-- LOGO -->
-<img src="logo.jpg" width="300">
+<body>
 
-<h1>🎧 Radio des 3 Arbres</h1>
 
-<button onclick="playRadio()" style="padding:15px; font-size:20px;">
-    ▶️ Écouter la radio
-</button>
+<!-- PLAYER -->
 
-<script>
-let audio = new Audio("https://radiodes3arbres.duckdns.org/stream");
+<div class="player">
 
-function playRadio() {
-    audio.play();
-}
-</script>
+
+    <!-- LOGO EN HAUT -->
+
+    <img
+        src="logo.jpg"
+        class="logo"
+        alt="Radio des 3 Arbres"
+    >
+
+
+    <!-- TITRE -->
+
+    <div class="title">
+
+        <span class="headphone">🎧</span>
+
+        Radio des 3<br>
+        Arbres
+
+    </div>
+
+
+    <!-- SLOGAN -->
+
+    <div class="slogan">
+
+        Il faut que la vérité soit dite !! 🌿
+
+    </div>
+
+
+    <!-- ÉGALISEUR -->
+
+    <div class="equalizer">
+
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+
+    </div>
+
+
+    <!-- LECTEUR RADIO -->
+
+    <audio
+        id="radio"
+        controls
+        preload="none"
+    >
+
+        <source
+            src="https://radiodes3arbres.duckdns.org/stream"
+            type="audio/mpeg"
+        >
+
+        Votre navigateur ne supporte pas le lecteur audio.
+
+    </audio>
+
+
+    <!-- DIRECT -->
+
+    <div class="live">
+
+        <span class="live-dot"></span>
+
+        En direct 24h/24
+
+    </div>
+
+
+</div>
+
 
 </body>
+
 </html>
